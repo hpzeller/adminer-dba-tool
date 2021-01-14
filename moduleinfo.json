@@ -1,0 +1,19 @@
+{
+    "name": "Adminer DBA-Tool",
+    "archiveName": "hpzeller/adminer-dba-tool",
+    "sourceDir": "new_files",
+    "version": "auto",
+    "developer": "Hanspeter Zeller",
+    "developerWebsite": "https://github.com/hpzeller",
+    "website": "https://xos-shop.com",    
+    "price": "free",    
+    "modifiedCompatibility": [
+        "2.0.5.0",
+        "2.0.5.1"
+    ],
+    
+    "require": {
+        "composer/autoload": "^1.1.0",
+        "robinthehood/modified-std-module": "^0.1.0"
+    }    
+}
