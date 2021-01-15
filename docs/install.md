@@ -9,6 +9,7 @@
 ![](https://github.com/hpzeller/adminer-dba-tool/blob/master/images/admin_adminer_dba_tool_1.png)
 
 > Nach erfolgreicher Installation findest du als Hauptadministrator [1] unter dem Menüpunkt Hilfsprogramme den neuen Untermenüpunkt Adminer DBA-Tool, ein klick darauf führt zum Adminer Datenbankverwaltungsprogramm.
+
 ![](https://github.com/hpzeller/adminer-dba-tool/blob/master/images/admin_adminer_dba_tool_2.png)
 
 ### Deinstallation
