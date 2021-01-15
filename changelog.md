@@ -1,3 +1,3 @@
-# Changelog
+## Changelog
 
-## adminer-dba-tool 0.1.0
+### adminer-dba-tool 0.1.0
