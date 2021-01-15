@@ -3,9 +3,12 @@
     "archiveName": "hpzeller/adminer-dba-tool",
     "sourceDir": "new_files",
     "version": "auto",
+    "shortDescription": "Adminer für die Shopadministration",
+    "description": "Adminer für die Shopadministration", 
     "developer": "Hanspeter Zeller",
     "developerWebsite": "https://github.com/hpzeller",
-    "website": "https://xos-shop.com",    
+    "website": "https://xos-shop.com",
+    "category": "persistance",    
     "price": "free",    
     "modifiedCompatibility": [
         "2.0.5.0",
