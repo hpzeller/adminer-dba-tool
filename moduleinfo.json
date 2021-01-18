@@ -3,14 +3,15 @@
     "archiveName": "hpzeller/adminer-dba-tool",
     "sourceDir": "new_files",
     "version": "auto",
-    "shortDescription": "Adminer für die Shopadministration",
-    "description": "Adminer für die Shopadministration", 
+    "shortDescription": "Das Modul integriert die beliebte Datenbank-Verwaltung <a href=\"https://www.adminer.org/de/\" target=\"__blank\">Adminer</a> in die modified Administration.",
+    "description": "Das Modul \"Adminer DBA-Tool\" integriert die beliebte Datenbank-Verwaltung <a href=\"https://www.adminer.org/de/\" target=\"__blank\">Adminer</a> in die Administration der modified eCommerce Shopsoftware.", 
     "developer": "Hanspeter Zeller",
     "developerWebsite": "https://github.com/hpzeller",
-    "website": "https://xos-shop.com",
+    "website": "https://www.modified-shop.org/forum/index.php?topic=41566.msg379204#msg379204",
     "category": "persistance",    
     "price": "free",    
     "modifiedCompatibility": [
+        "2.0.4.2",
         "2.0.5.0",
         "2.0.5.1"
     ],

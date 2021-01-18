@@ -1,1 +1,2 @@
-Bedienung:
+# Bedienung
+Ein Benutzeranleitung für die Adminer Datenbank-Verwaltung gibt es, ausser einigen kleinen Benutzerhinweisen welche man zumeist in Tutorials zum Thema Adminer im Intrnet findet, leider nicht. Die meisten Anwendungsmöglichkeiten sind aber für erfahrenere DBAs selbsterklärend, insbesondere für diejenigen welche phpMyAdmin kennen.
