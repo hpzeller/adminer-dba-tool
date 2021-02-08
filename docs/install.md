@@ -20,6 +20,6 @@ Nach erfolgreicher Installation findest du als Hauptadministrator [1] unter dem 
 ## Deinstallation
 1. Melde dich im Adminbereich an.
 1. Gehe im Menü zu **Module** > **System Module**.
-1. Selektiere dort das Modul **Adminer DBA-Tool** und klicke auf den Button **[Deinstallieren**].
+1. Selektiere dort das Modul **Adminer DBA-Tool** und klicke auf den Button **[Deinstallieren**] und dann nochmal auf den Button **[Deinstallieren]**.
 1. Melde dich im MMLC an und suche unter dem Menüpunkt **Installiert** nach **Adminer DBA-Tool**.
 1. Klicke dort auf den Button **[Details**] und dann auf den Button **[Deinstallieren]**.
