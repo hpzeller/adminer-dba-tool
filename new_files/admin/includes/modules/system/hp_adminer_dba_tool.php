@@ -71,10 +71,7 @@ class hp_adminer_dba_tool extends StdModule
           rename(DIR_FS_CATALOG . DIR_ADMIN . DIR_ADMINER . '/' . ADMINER_INDEX_FILE, DIR_FS_CATALOG . DIR_ADMIN . DIR_ADMINER . '/index.php');        
           rename(DIR_FS_CATALOG . DIR_ADMIN . DIR_ADMINER , DIR_FS_CATALOG . DIR_ADMIN . 'adminer');        
                                     
-          $fp = fopen(DIR_FS_CATALOG . 'includes/extra/configure/hp_adminer_dba_tool.php', 'w');
-          fputs($fp, '<?php');
-          fclose($fp);    
-          @chmod(DIR_FS_CATALOG . 'includes/extra/configure/hp_adminer_dba_tool.php', 0644);                             
+          unlink(DIR_FS_CATALOG . 'includes/extra/configure/hp_adminer_dba_tool.php');                            
        }
     }
     
