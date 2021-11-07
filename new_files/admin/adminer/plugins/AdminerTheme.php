@@ -28,7 +28,9 @@ class AdminerTheme
     {
         define("PMTN_ADMINER_THEME", true);
 
-        $this->themeName = isset($_GET["username"]) && isset($themes[SERVER]) ? $themes[SERVER] : $defaultTheme;
+        $this->themeName = isset($_GET["username"]) && isset($_GET["server"]) && isset($themes[$_GET["server"]])
+            ? $themes[$_GET["server"]]
+            : $defaultTheme;
     }
 
     /**
@@ -40,57 +42,58 @@ class AdminerTheme
         $userAgent = filter_input(INPUT_SERVER, "HTTP_USER_AGENT");
         ?>
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
 
-<link rel="icon" type="image/ico" href="images/favicon.png">
+        <link rel="icon" type="image/ico" href="images/favicon.png">
 
-<?php
+        <?php
             // Condition for Windows Phone has to be the first, because IE11 contains also iPhone and Android keywords.
-if (strpos($userAgent, "Windows") !== false):
-?>
-<meta name="application-name" content="Adminer"/>
-<meta name="msapplication-TileColor" content="#ffffff"/>
-<meta name="msapplication-square150x150logo" content="images/tileIcon.png"/>
-<meta name="msapplication-wide310x150logo" content="images/tileIcon-wide.png"/>
+            if (strpos($userAgent, "Windows") !== false):
+        ?>
+            <meta name="application-name" content="Adminer"/>
+            <meta name="msapplication-TileColor" content="#ffffff"/>
+            <meta name="msapplication-square150x150logo" content="images/tileIcon.png"/>
+            <meta name="msapplication-wide310x150logo" content="images/tileIcon-wide.png"/>
 
-<?php elseif (strpos($userAgent, "iPhone") !== false || strpos($userAgent, "iPad") !== false): ?>
-<link rel="apple-touch-icon-precomposed" href="images/touchIcon.png?<?php echo self::ICONS_VERSION ?>"/>
+        <?php elseif (strpos($userAgent, "iPhone") !== false || strpos($userAgent, "iPad") !== false): ?>
+            <link rel="apple-touch-icon-precomposed" href="images/touchIcon.png?<?php echo self::ICONS_VERSION ?>"/>
 
-<?php elseif (strpos($userAgent, "Android") !== false): ?>
-<link rel="apple-touch-icon-precomposed" href="images/touchIcon-android.png?<?php echo self::ICONS_VERSION ?>"/>
+        <?php elseif (strpos($userAgent, "Android") !== false): ?>
+            <link rel="apple-touch-icon-precomposed" href="images/touchIcon-android.png?<?php echo self::ICONS_VERSION ?>"/>
 
-<?php else: ?>
-<link rel="apple-touch-icon" href="images/touchIcon.png?<?php echo self::ICONS_VERSION ?>"/>
-<?php endif; ?>
+        <?php else: ?>
+            <link rel="apple-touch-icon" href="images/touchIcon.png?<?php echo self::ICONS_VERSION ?>"/>
+        <?php endif; ?>
 
-<link rel="stylesheet" type="text/css" href="css/<?php echo htmlspecialchars($this->themeName) ?>.css?<?php echo self::CSS_VERSION ?>">
+        <link rel="stylesheet" type="text/css" href="css/<?php echo htmlspecialchars($this->themeName) ?>.css?<?php echo self::CSS_VERSION ?>">
 
-<script<?php echo nonce(); ?>>
-    (function(document) {
-        "use strict"; 
+        <script <?php echo nonce(); ?>>
+            (function(document) {
+                "use strict";
 
-        document.addEventListener("DOMContentLoaded", init, false);
+                document.addEventListener("DOMContentLoaded", init, false);
 
-        function init() {
-            var menu = document.getElementById("menu");
-            var button = menu.getElementsByTagName("h1")[0];
-            if (!menu || !button) {
-                return;
-            }
+                function init() {
+                    var menu = document.getElementById("menu");
+                    var button = menu.getElementsByTagName("h1")[0];
+                    if (!menu || !button) {
+                        return;
+                    }
 
-            button.addEventListener("click", function() {
-                if (menu.className.indexOf(" open") >= 0) {
-                    menu.className = menu.className.replace(/ *open/, "");
-                } else {
-                    menu.className += " open";
+                    button.addEventListener("click", function() {
+                        if (menu.className.indexOf(" open") >= 0) {
+                            menu.className = menu.className.replace(/ *open/, "");
+                        } else {
+                            menu.className += " open";
+                        }
+                    }, false);
                 }
-            }, false);
-        }
 
-    })(document);
-    
-</script>
+            })(document);
+
+        </script>
+
         <?php
 
         // Return false to disable linking of adminer.css and original favicon.
