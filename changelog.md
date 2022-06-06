@@ -1,5 +1,5 @@
 # Changelog
-## adminer-dba-tool 0.1.1 (06.06.2022)
+## adminer-dba-tool 0.1.2 (06.06.2022)
 - Update new_files/admin/adminer/adminer.php von v4.7.9 auf v4.8.1
 - Update docs/install.md Text in Deinstallation ergänzt.
 - Update README.md Text ergänzt.
