@@ -2,11 +2,11 @@
 /**
  * --------------------------------------------------------------
  * File: adminer_dba_tool.php
- * Version: 0.1
- * Date: 16.12.2020
+ * Version: 0.2
+ * Date: 16.12.2022
  *
  * Author: Hanspeter Zeller
- * Copyright: (c) 2020 - Hanspeter Zeller
+ * Copyright: (c) 2022 - Hanspeter Zeller
  * Web: https://xos-shop.com
  * Contact: info@xos-shop.com
  * --------------------------------------------------------------
@@ -18,10 +18,10 @@ defined( '_VALID_XTC' ) or die( 'Direct Access to this location is not allowed.'
 
 switch ($_SESSION['language_code']) {
     case 'de':
-        define('MENU_NAME_ADMINER_DBA_TOOL','Adminer DBA-Tool');
+        defined('MENU_NAME_ADMINER_DBA_TOOL') or define('MENU_NAME_ADMINER_DBA_TOOL', 'Adminer DBA-Tool');
         break;
     default:
-        define('MENU_NAME_ADMINER_DBA_TOOL','Adminer DBA Tool');
+        defined('MENU_NAME_ADMINER_DBA_TOOL') or define('MENU_NAME_ADMINER_DBA_TOOL', 'Adminer DBA Tool');
         break;
 }
 if ((defined('MODULE_HP_ADMINER_DBA_TOOL_STATUS')) && (MODULE_HP_ADMINER_DBA_TOOL_STATUS == 'true')){

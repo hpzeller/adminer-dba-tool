@@ -1,23 +1,57 @@
 <?php
+/**
+ * --------------------------------------------------------------
+ * File: adminer_dba_tool.php
+ * Version: 0.2
+ * Date: 03.06.2022
+ *
+ * Author: Hanspeter Zeller
+ * Copyright: (c) 2022 - Hanspeter Zeller
+ * Web: https://xos-shop.com
+ * Contact: info@xos-shop.com
+ * --------------------------------------------------------------
+ * Released under the GNU General Public License
+ * --------------------------------------------------------------
+ */
+ 
 defined('_VALID_XTC') or die('Direct Access to this location is not allowed.');
 
-use RobinTheHood\ModifiedStdModule\Classes\StdModule;
-require_once DIR_FS_DOCUMENT_ROOT . '/vendor-no-composer/autoload.php';
-
-class hp_adminer_dba_tool extends StdModule
+class hp_adminer_dba_tool 
 {
-    public function __construct()
+    var $code, $title, $description, $enabled, $sort_order;
+
+    public function __construct() 
     {
-        $this->init('MODULE_HP_ADMINER_DBA_TOOL');
+        $this->code = 'hp_adminer_dba_tool';
+        $this->title = MODULE_HP_ADMINER_DBA_TOOL_TITLE;
+        $this->description = MODULE_HP_ADMINER_DBA_TOOL_LONG_DESCRIPTION;
+        $this->sort_order = 0;
+        $this->enabled = ((defined('MODULE_HP_ADMINER_DBA_TOOL_STATUS') && MODULE_HP_ADMINER_DBA_TOOL_STATUS == 'true') ? true : false);                                
     }
 
-    public function display()
+    public function process() 
+    {
+        //do nothing
+    }
+    
+    public function display() 
     {
         return array('text' => '<br /><div align="center">' . xtc_button(BUTTON_SAVE) .
-        xtc_button_link(BUTTON_CANCEL, xtc_href_link(FILENAME_MODULE_EXPORT, 'set=' . $_GET['set'] . '&module=' . $this->code)) . "</div>");
-    }
+          xtc_button_link(BUTTON_CANCEL, xtc_href_link(FILENAME_MODULE_EXPORT, 'set=' . $_GET['set'] . '&module=' . $this->code)) . "</div>");
+    }    
+    
+    public function check() 
+    {
+        if (!isset($this->_check)) { 
+            $check_query = xtc_db_query("SELECT configuration_value
+                                           FROM " . TABLE_CONFIGURATION . "
+                                          WHERE configuration_key = 'MODULE_HP_ADMINER_DBA_TOOL_STATUS'");
+            $this->_check = xtc_db_num_rows($check_query);
+        }
+        return $this->_check;
+    }    
 
-    public function install()
+    public function install() 
     {
         xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value,  configuration_group_id, sort_order, set_function, date_added)
               				VALUES ('MODULE_HP_ADMINER_DBA_TOOL_STATUS', 'true',  '6', '1', 'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
@@ -52,7 +86,7 @@ class hp_adminer_dba_tool extends StdModule
         @chmod(DIR_FS_CATALOG . 'includes/extra/configure/hp_adminer_dba_tool.php', 0644);
     }
 
-    public function remove()
+    public function remove() 
     {
         xtc_db_query("DELETE FROM " . TABLE_CONFIGURATION . " WHERE configuration_key LIKE 'MODULE_HP_ADMINER_DBA_TOOL_%'");
       
